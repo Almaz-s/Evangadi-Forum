@@ -1,0 +1,64 @@
+/* Styling for the header component */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #f97316; 
+}
+
+.login-btn {
+  background-color: #395fac;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.login-btn:hover {
+  background-color: #f97316;
+ 
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .login-btn {
+    margin-top: 10px;
+  }
+}

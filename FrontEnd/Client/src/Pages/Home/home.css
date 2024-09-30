@@ -1,0 +1,60 @@
+/* General styling for the home page */
+.home-page {
+    /* background-image: url("../../assets/image/bg-svg-f.svg"); */
+    /* background-size: cover; */
+    
+  padding: 200px 20px; 
+  text-align: left;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+/* Style for the title */
+.home-page h1 {
+  font-size: 4rem;  
+  line-height: 1.2; 
+  font-weight: 700; 
+  color: #222; 
+  margin-bottom: 20px; 
+}
+
+/* Style for the paragraph text */
+.home-page p {
+  font-size: 1.2rem; 
+  color: #555; 
+  line-height: 1.8; 
+  margin-bottom: 30px; 
+}
+
+/* CTA button styling */
+.join-btn {
+  background: linear-gradient(to right, #f97316, #f86d38); 
+  color: white; 
+  padding: 15px 30px; 
+  text-decoration: none; 
+  font-weight: 600; 
+  border-radius: 50px; /* Rounded button */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+/* Hover effect for join  button */
+.join-btn:hover {
+  background: linear-gradient(to right, #f86d38, #f97316); /* Reverse gradient on hover */
+  cursor: pointer; 
+}
+
+/* Responsive Design: smaller screens */
+@media (max-width: 768px) {
+  .home-page h1 {
+    font-size: 2.5rem; 
+  }
+
+  .home-page p {
+    font-size: 1rem; 
+  }
+
+  .join-btn {
+    padding: 12px 25px; 
+  }
+  
+}
