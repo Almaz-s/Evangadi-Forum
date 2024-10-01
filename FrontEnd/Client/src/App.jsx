@@ -4,6 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import About from "./Components/About/About";
+import HowItWorks from "./Pages/HowItWorks/HowItWorks"; // Make sure this is correctly imported
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
+        <Route path="/HowItWorks" element={<HowItWorks />} />{" "}
+        {/* Add the closing tag */}
       </Routes>
       <Footer />
     </Router>
