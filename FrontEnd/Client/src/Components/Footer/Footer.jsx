@@ -28,7 +28,7 @@ const Footer = () => {
             <ul className="useful_links">
               <li>Useful Link</li>
               <li>
-                <Link to="">How it works</Link>
+                <Link to="HowItWorks">How it works</Link>
               </li>
               <li>
                 <Link to="">Terms of Service</Link>
