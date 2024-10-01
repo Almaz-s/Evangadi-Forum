@@ -1,0 +1,59 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  /* padding: 20px; */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #f18c25; /* Orange heading */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-section h1 {
+  font-size: 36px;
+  color: #3d3d5e; /* Dark blue for the title */
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.how-it-works-btn {
+  background-color: #f18c25; /* Orange button */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.how-it-works-btn:hover {
+  background-color: #d4751e; /* Darker shade on hover */
+}
