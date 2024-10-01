@@ -1,0 +1,102 @@
+/* Signup.css */
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff; /* White background as in the screenshot */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px;
+  padding: 40px;
+  padding-top: 80px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.signup-background {
+  background-image: url('../../assets/image/bg-svg-f.svg'); /* Path to your background image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0; /* Ensure the background stays behind the form */
+}
+
+.signup-container h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.signup-container p {
+  text-align: center;
+  color:#DA7000;
+}
+
+.signup-form .form-group {
+  margin-bottom: 15px;
+}
+
+.signup-form .form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.signup-form .form-row .form-group {
+  width: 48%;
+  /* padding: 5px; */
+}
+
+
+
+.signup-form .submit-btn {
+  background-color: #3b82f6; /* Blue color similar to screenshot */
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signup-form .submit-btn:hover {
+  background-color: #2563eb;
+}
+
+.password-toggle {
+  float: right;
+  cursor: pointer;
+  color: #888;
+  font-size: 14px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.success-message {
+  text-align: center;
+  color: green;
+}
+
+/* Extra for links */
+.signup-container a {
+  color:#DA7000; /* Orange color as per screenshot */
+  text-decoration: none;
+}
+
+.signup-container a:hover {
+  text-decoration: underline;
+}
