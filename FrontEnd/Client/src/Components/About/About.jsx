@@ -3,8 +3,8 @@ import "./about.css";
 
 const About = () => {
   return (
-    <div className="sideNote2 container col-12 col-md-6 ms-md-2  mt-sm-5">
-      <p className="forTitle">About</p>
+    <div className="info_container">
+      <p className="for_Title">About</p>
       <h1>Evangadi Networks </h1>
       <p>
         No matter what stage of life you are in, whether you're just starting

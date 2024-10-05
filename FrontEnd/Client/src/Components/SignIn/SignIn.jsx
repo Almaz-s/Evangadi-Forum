@@ -1,6 +1,5 @@
-
-
 import React, { useState } from "react";
+import "./SignIn.css";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -16,7 +15,6 @@ function SignIn() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Email:</label>
         <input
           type="email"
           value={email}
