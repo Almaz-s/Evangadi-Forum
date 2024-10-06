@@ -1,8 +1,11 @@
 import React from "react";
 import "./home.css";
 import backgroundImage from "../../assets/image/bg-svg-f.svg"; // Ensure the path is correct
+import { useContext } from "react";
+import { AppState } from "../../App";
 
 const Home = () => {
+  const { user } = useContext(AppState);
   return (
     <div
       className="home-page"
@@ -30,9 +33,11 @@ const Home = () => {
         projects, and enhance your professional growth. Explore the features
         that can elevate your tech journey today
       </p>
-      <a href="/SignUp" className="join-btn">
+      <Link to="/SignUp" className="join-btn">
         Join Now
-      </a>
+      </Link>
+      <br />
+      <h2>welcome : {user.username}</h2>
     </div>
   );
 };
