@@ -1,4 +1,5 @@
-require('dotenv').config()
+require("dotenv").config();
+const cors = require("cors");
 
 const express = require("express");
 const app = express();
@@ -8,16 +9,19 @@ const port = 2200;
 const dbConnection = require("./db/dbConfig");
 
 // user routes middleware file
-const userRoutes = require("./Routes/UserRoutes.jsx");
+const userRoutes = require("./Routes/UserRoutes");
 
 // question routes middleware file
-const questionRoutes = require("./Routes/QuestionRoutes.jsx");
+const questionRoutes = require("./Routes/QuestionRoutes");
 
 // question routes middleware file
-const answerRoutes = require("./Routes/AnswerRoutes.jsx");
+const answerRoutes = require("./Routes/AnswerRoutes");
 
 //authentication middleware file
-const authMiddleware = require("./MiddleWare/AuthMiddleware.jsx");
+const authMiddleware = require("./MiddleWare/AuthMiddleware");
+
+//middleWare
+app.use(cors());
 
 //json middleware to extract json data
 app.use(express.json());
@@ -37,7 +41,7 @@ async function start() {
     const result = await dbConnection.execute("select 'test' ");
     await app.listen(port);
     console.log("database connection established");
-    console.log("listening on http://localhost:${port}");
+    console.log(`listening on http://localhost:${port}`);
   } catch (error) {
     console.log(error.message);
   }
