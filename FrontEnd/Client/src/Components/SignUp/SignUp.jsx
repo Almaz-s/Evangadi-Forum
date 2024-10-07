@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
-import "./Signup.css";
+// import axios from "axios";
+import axios from "../../axiosConfig";
+import { Link, useNavigate } from "react-router-dom";
+import "./SignUp.css";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +56,7 @@ const SignUp = () => {
       <div className="signup-container">
         <h3>Join the network</h3>
         <p>
-          Already have an account? <a href="/login">Sign in</a>
+          Already have an account? <a href="/SignIn">Sign In</a>
         </p>
         {submitted ? (
           <div className="success-message">Registration Successful!</div>
@@ -145,7 +147,7 @@ const SignUp = () => {
         )}
 
         <p>
-          Already have an account? <a href="/login">Sign in</a>
+          Already have an account? <Link to="/SignIn">Sign in</Link>
         </p>
       </div>
     </div>

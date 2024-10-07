@@ -6,8 +6,9 @@ export const UserContext = createContext();
 // Create the provider component
 export const UserProvider = (props) => {
     const [userData, setUserData] = useState({
-        user: undefined,
-        token: undefined,
+      user: undefined,
+      token: undefined,
+    //   config: undefined,
     });
 
     return (

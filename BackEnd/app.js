@@ -1,9 +1,14 @@
 require("dotenv").config();
+ 
 const cors = require("cors");
 
 const express = require("express");
 const app = express();
 const port = 2200;
+
+// ! cors imported as a middle ware to connect with the front end .
+const cors = require("cors");
+app.use(cors);
 
 //db connection
 const dbConnection = require("./db/dbConfig");
