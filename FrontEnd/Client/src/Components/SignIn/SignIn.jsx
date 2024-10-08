@@ -1,76 +1,144 @@
-import React, { useRef } from "react";
-import axios from "../../axiosConfig";
-import { Link, useNavigate } from "react-router-dom";
-import "./SignIn.module.css";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axiosBase from "../../API/axiosConfig"; // Axios instance to handle API requests
+import "./SignIn.css"; // Custom styling for the SignIn component
+import VisibilityIcon from "@mui/icons-material/Visibility"; // Eye icon for showing password
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off icon for hiding password
+import "./SignIn.css";
+import axios from "axios";
+function SignIn() {
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [errorMessage, setErrorMessage] = useState(""); // State to handle error messages
+  const [processing, setProcessing] = useState(false); // State to handle login process state
+  const [email, setEmail] = useState(""); // State to store the user's email input
+  const [password, setPassword] = useState(""); // State to store the user's password input
+  const navigate = useNavigate(); // Navigation hook for programmatic redirects
 
-const SignIn = () => {
-  const navigate = useNavigate();
-  const emailDom = useRef(null);
-  const passwordDom = useRef(null);
-
-  async function handleSubmit(e) {
+  // Handles form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const emailValue = emailDom.current.value;
-    const passwordValue = passwordDom.current.value;
-    if (!emailValue || !passwordValue) {
-      alert("please provide all required information");
+    // Basic validation to ensure email and password are provided
+    if (!email || !password) {
+      alert("Please provide all required information");
       return;
     }
+
     try {
-      const { data } = await axios.post("/users/login", {
-        email: emailValue,
-        password: passwordValue,
+      setProcessing(true); // Set processing state to true during API request
+      setErrorMessage(""); // Clear any previous error messages
+
+      // Send API request to log in the user
+      //const axios = require("axios");
+      let data = JSON.stringify({
+        email: email,
+        password: password,
       });
 
-      alert("user login successful.");
-      navigate("/allQuestions");
-      localStorage.setItem("token", data.token);
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "/users/login",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: data,
+      };
+
+      axiosBase
+        .request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          // On successful login, store the token and navigate to a different page
+          alert("Login successful!");
+          //localStorage.setItem("token", response.data.token); // Save token to localStorage
+          //alert(JSON.stringify(response.data));
+          navigate("/allQuestions"); // Redirect to QuestionDetail page after login
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (error) {
-      alert(error?.response?.data?.msg);
-      console.log(error.response.data);
+      // Handle error if login fails and display an appropriate message
+      console.error("Login failed: ", error.response || error.message);
+      setErrorMessage(error?.response?.data?.msg || "Unexpected Error!");
     }
-  }
+    setProcessing(false); // Set processing state back to false after API request
+  };
+
+  // Toggles the password visibility between plain text and hidden
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
-    <section className="login-container">
-      <h2 className="login-title">Login to your account</h2>
-      <div className="Account">
-        <span>Don't have an account?</span>{" "}
-        <Link to="/signup" className="createAccount">
-          Create a new account
+    <div className="login-page">
+      {/* Left-side login form */}
+      <div className="login-form-container">
+        <h2>Login to your account</h2>
+        <p>
+          Don’t have an account?
+          <Link to="/SignUp" className="create-account-link">
+            Create a new account
+          </Link>
+        </p>
+
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+
+          <label htmlFor="password">Password</label>
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"} // Show or hide password based on state
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+            <span className="show-password" onClick={togglePasswordVisibility}>
+              {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}{" "}
+              {/* Toggle visibility icon */}
+            </span>
+          </div>
+
+          <button type="submit" className="login-btn" disabled={processing}>
+            {processing ? "Logging in..." : "Login"}{" "}
+            {/* Show processing state */}
+          </button>
+
+          {/* Display error message if present */}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </form>
+      </div>
+
+      {/* Right-side info section */}
+      <div className="info-section">
+        <h2>Evangadi Networks Q & A</h2>
+        <p>
+          No matter what stage of life you are in, whether you're just starting
+          elementary school or being promoted to CEO of a Fortune 500 company,
+          you have much to offer to those who are trying to follow in your
+          footsteps.
+        </p>
+        <p>
+          Whether you are willing to share your knowledge or you are just
+          looking to meet mentors of your own, please start by joining the
+          network here.
+        </p>
+        <Link to="/HowItWorks" className="how-it-works-btn">
+          How it Works
         </Link>
       </div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="input-group">
-          <input
-            ref={emailDom}
-            type="email"
-            placeholder="Email"
-            className="input-field"
-          />
-        </div>
-        <div className="input-group">
-          <input
-            ref={passwordDom}
-            type="password"
-            placeholder="Password"
-            className="input-field"
-          />
-          <span className="eye-icon"></span>
-        </div>
-        <div className="links-container">
-          <Link to="/ForgotPassword" className="forgot-password">
-            Forgot password?
-          </Link>
-        </div>
-
-        <button type="submit" className="login-button">
-          Login
-        </button>
-      </form>
-    </section>
+    </div>
   );
-};
+}
 
 export default SignIn;
