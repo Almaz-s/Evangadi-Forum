@@ -45,7 +45,7 @@ async function registerQuestion(req, res) {
 async function allQuestions(req, res) {
   try {
     const [questions] = await dbConnection.query(
-      `SELECT questions.questionid, questions.title, questions.description, users.username, questions.created_at 
+      `SELECT questions.questionid, questions.title, questions.description, users.username
        FROM questions
        JOIN users ON questions.userid = users.userid`
     );
