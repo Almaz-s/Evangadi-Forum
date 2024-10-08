@@ -1,7 +1,7 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import Home from "./Pages/Home/Home";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignUp from "./Components/SignUp/SignUp";
 import SignIn from "./Components/SignIn/SignIn";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
@@ -9,6 +9,7 @@ import Answer from "./Pages/Answer/Answer";
 import HowItWorks from "./Pages/HowItWorks/HowItWorks";
 import axios from "./axiosConfig"; // Import axios for API requests
 import { useEffect, useState, createContext } from "react"; // Import hooks and context API
+import Home from "./Components/Home/Home";
 
 export const AppState = createContext(); // Create context for global state
 
@@ -52,12 +53,13 @@ function App() {
     <AppState.Provider value={{ user, setUser }}>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />{" "}
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Answer" element={<Answer />} />
         <Route path="/HowItWorks" element={<HowItWorks />} />{" "}
+        <Route path="/allQuestions" element={<Home />} />
       </Routes>
       <Footer /> {/* Render footer component */}
     </AppState.Provider>

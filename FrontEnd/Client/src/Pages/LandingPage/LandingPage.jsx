@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import classes from "./home.module.css";
+import classes from "./LandingPage.module.css";
 import studentsChatting from "../../assets/image/10002.png"; // students image
 import { AppState } from "../../App"; // Importing AppState context
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function LandingPage() {
   const { user } = useContext(AppState); // Access user from AppState context
   const navigate = useNavigate(); // Hook for navigation
 
@@ -47,4 +47,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default LandingPage;
