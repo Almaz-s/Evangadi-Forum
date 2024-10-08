@@ -7,7 +7,10 @@ const {
 } = require("../controller/QuestionController");
 
 //authentication middleware
-const authMiddleware = require("../MiddleWare/AuthMiddleware");
+
+const authMiddleware = require("../MiddleWare/AuthMiddleware.js");
+
+
 
 //Post question
 router.post("/question", authMiddleware, registerQuestion);
