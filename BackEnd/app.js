@@ -1,12 +1,13 @@
 require("dotenv").config();
-
+<
 const cors = require("cors");
-
 const express = require("express");
 const app = express();
 const port = 2200;
 
+
 app.use(cors);
+
 
 //db connection
 const dbConnection = require("./db/dbConfig");
