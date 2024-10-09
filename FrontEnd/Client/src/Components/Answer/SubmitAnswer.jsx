@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import axios from "../../axios/AxiosConfig";
-import "./SubmitAnswer.css"; // Add this to link the CSS
+import axios from "../../axiosConfig";
+import "./submitAnswer.css"; // Link to CSS
+import AnswersList from "../Answer/AnswerList";
 
 const SubmitAnswer = ({ questionid }) => {
+  // Receive questionid as prop
   const [answer, setAnswer] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
 
@@ -12,7 +14,7 @@ const SubmitAnswer = ({ questionid }) => {
     try {
       const token = localStorage.getItem("token"); // Fetch the auth token
       const response = await axios.post(
-        "/answer",
+        "/answers/answer",
         {
           questionid,
           answer,
@@ -34,8 +36,7 @@ const SubmitAnswer = ({ questionid }) => {
 
   return (
     <div className="answer-container">
-      <div></div>
-      <h2>Answer From The Community</h2>
+      <AnswersList />
       <form onSubmit={handleSubmit} className="answer-form">
         <textarea
           className="answer-input"

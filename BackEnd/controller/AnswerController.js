@@ -33,15 +33,17 @@ async function submitAnswer(req, res) {
 }
 
 // Function to retrieve all answers for a question
+
 async function allAnswer(req, res) {
   const { questionid } = req.params;
 
   try {
-    // Query the answers table to get all answers for the specific question
+    // Query the answers table and join with the users table to get the username
     const [answers] = await dbConnection.query(
-      `SELECT answerid, answer, userid 
-       FROM answers 
-       WHERE questionid = ?`,
+      `SELECT a.answerid, a.answer, a.userid, u.username
+       FROM answers a
+       JOIN users u ON a.userid = u.userid
+       WHERE a.questionid = ?`,
       [questionid]
     );
 
@@ -53,7 +55,7 @@ async function allAnswer(req, res) {
       });
     }
 
-    // Return all answers
+    // Return all answers along with the username
     return res.status(StatusCodes.OK).json({ answers });
   } catch (error) {
     console.log(error.message);

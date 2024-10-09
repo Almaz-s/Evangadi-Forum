@@ -5,7 +5,6 @@ import "./SignIn.css"; // Custom styling for the SignIn component
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Eye icon for showing password
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off icon for hiding password
 
-import axios from "axios";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errorMessage, setErrorMessage] = useState(""); // State to handle error messages
@@ -49,10 +48,14 @@ function SignIn() {
         .then((response) => {
           console.log(JSON.stringify(response.data));
           // On successful login, store the token and navigate to a different page
-          alert("Login successful!");
           //localStorage.setItem("token", response.data.token); // Save token to localStorage
           //alert(JSON.stringify(response.data));
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", response.data.user);
+
+          console.log("LoginResponse", response.data);
           navigate("/allQuestions"); // Redirect to QuestionDetail page after login
+          // alert("Login successful!");
         })
         .catch((error) => {
           console.log(error);

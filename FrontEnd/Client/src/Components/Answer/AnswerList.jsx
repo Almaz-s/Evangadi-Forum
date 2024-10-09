@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "../../axios/AxiosConfig";
+import axios from "../../axiosConfig";
+import { FaUserCircle } from "react-icons/fa";
+import "./answerList.css";
 
 const AnswersList = () => {
   const { questionid } = useParams(); // Extract questionid from the URL
@@ -34,31 +36,6 @@ const AnswersList = () => {
     }
   }, [questionid]);
 
-  // Submit a new answer
-  const handleSubmitAnswer = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      await axios.post(
-        "/answer",
-        {
-          questionid,
-          answer: newAnswer,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      setNewAnswer(""); // Clear the answer input
-      await fetchAnswers(); // Refresh answers after submitting
-    } catch (err) {
-      setError("Failed to post the answer.");
-      console.error(err);
-    }
-  };
-
   if (loading) return <p>Loading answers...</p>;
 
   return (
@@ -67,26 +44,19 @@ const AnswersList = () => {
       {error ? (
         <p>{error}</p>
       ) : (
-        <>
-          <ul>
-            {answers.map((answer) => (
-              <li key={answer.answerid}>
-                <small>{answer.username}</small>
-                <p>{answer.answer}</p>
-              </li>
-            ))}
-          </ul>
-        </>
+        <ul className="answer_container">
+          {answers.map((answer) => (
+            <li key={answer.answerid}>
+              <small>
+                {" "}
+                <FaUserCircle />
+                <p>{answer.username}</p>
+              </small>
+              <p>{answer.answer}</p>
+            </li>
+          ))}
+        </ul>
       )}
-      <div className="answer-form">
-        <input
-          type="text"
-          placeholder="Your answer"
-          value={newAnswer}
-          onChange={(e) => setNewAnswer(e.target.value)}
-        />
-        <button onClick={handleSubmitAnswer}>Post Answer</button>
-      </div>
     </div>
   );
 };

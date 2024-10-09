@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import axios from "../../axios/AxiosConfig";
-import "./question.css";
+import axios from "../../../axiosConfig";
+import "./quetion.css";
 import { FaArrowCircleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Questions = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
+  const navigate = useNavigate();
 
   const handlePostQuestion = async (e) => {
     e.preventDefault();
@@ -28,6 +30,7 @@ const Questions = () => {
       );
 
       setResponseMessage(response.data.msg); // Show success message from API
+      navigate("/allQuestions");
     } catch (error) {
       setResponseMessage(
         error.response?.data?.msg || "An unexpected error occurred."
