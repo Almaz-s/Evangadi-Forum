@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "../../../axiosConfig";
-import "./quetion.css";
+import "./PostQuestion.module.css";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -39,36 +39,37 @@ const Questions = () => {
   };
 
   return (
-    <div>
-      <h1>Steps To Write A Good Question</h1>
-      <hr />
-      <ul className="question-steps">
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Steps To Write A Good Question</h1>
+      <hr className={styles.divider} />
+      <ul className={styles.questionSteps}>
         <li>
-          <FaArrowCircleRight />
+          <FaArrowCircleRight className={styles.icon} />
           Summarize your problems in a one-line title.
         </li>
         <li>
-          <FaArrowCircleRight />
+          <FaArrowCircleRight className={styles.icon} />
           Describe your problem in more detail.
         </li>
         <li>
-          <FaArrowCircleRight />
+          <FaArrowCircleRight className={styles.icon} />
           Describe what you tried and what you expected to happen.
         </li>
         <li>
-          <FaArrowCircleRight />
+          <FaArrowCircleRight className={styles.icon} />
           Review your question and post it here.
         </li>
       </ul>
 
-      <form onSubmit={handlePostQuestion}>
+      <form onSubmit={handlePostQuestion} className={styles.form}>
         <div>
-          <h2>Post Your Question</h2>
+          <h2 className={styles.subtitle}>Post Your Question</h2>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Question title"
+            className={styles.input}
             required
           />
         </div>
@@ -78,14 +79,19 @@ const Questions = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Question detail ..."
+            className={styles.textarea}
             required
           />
         </div>
 
-        <button type="submit">Post Question</button>
+        <button type="submit" className={styles.button}>
+          Post Question
+        </button>
       </form>
 
-      {responseMessage && <p>{responseMessage}</p>}
+      {responseMessage && (
+        <p className={styles.responseMessage}>{responseMessage}</p>
+      )}
     </div>
   );
 };
