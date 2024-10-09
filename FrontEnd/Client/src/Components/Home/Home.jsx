@@ -44,7 +44,10 @@ const Home = () => {
   return (
     <div className="question-list-container">
       <div className="top-bar">
-        <button className="ask-question-btn">Ask Question</button>
+        <Link to="/question">
+          <button className="ask-question-btn">Ask Question</button>
+        </Link>
+
         <div className="welcome-message">
           Welcome: <span className="username">{user.username}</span>
         </div>
@@ -68,7 +71,10 @@ const Home = () => {
                 <p className="question-author">{question.username}</p>
               </div>
               <div className="question-content">
-                <p className="question-title">{question.title}</p>
+                <Link to="/question/questionid">
+                  {" "}
+                  <p className="question-title">{question.title}</p>
+                </Link>
               </div>
               <IoIosArrowForward className="arrow-icon" />
             </div>

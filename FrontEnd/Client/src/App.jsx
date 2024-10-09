@@ -5,7 +5,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignUp from "./Components/SignUp/SignUp";
 import SignIn from "./Components/SignIn/SignIn";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
-import Answer from "./Pages/Answer/Answer";
+import Answer from "./Components/Answer/SubmitAnswer";
 import HowItWorks from "./Pages/HowItWorks/HowItWorks";
 import axios from "./axiosConfig"; // Import axios for API requests
 import { useEffect, useState, createContext } from "react"; // Import hooks and context API
