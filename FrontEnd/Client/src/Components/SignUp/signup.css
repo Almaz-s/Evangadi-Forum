@@ -1,102 +1,246 @@
-/* Signup.css */
-.signup-container {
-  width: 100%;
-  max-width: 400px;
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Container styling */
+.SignUpContainer {
   margin: 0 auto;
-  background-color: #ffffff; /* White background as in the screenshot */
-  border: 1px solid #ddd; /* Light border */
-  border-radius: 8px;
-  padding: 40px;
-  padding-top: 80px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.signup-background {
-  background-image: url('../../assets/image/bg-svg-f.svg'); /* Path to your background image */
-  background-size: cover; /* Ensure the image covers the entire background */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0; /* Ensure the background stays behind the form */
-}
+  /* gap: 50px; */
 
-.signup-container h3 {
-  text-align: center;
-  font-size: 24px;
-  color: #333;
-}
-
-.signup-container p {
-  text-align: center;
-  color:#DA7000;
-}
-
-.signup-form .form-group {
-  margin-bottom: 15px;
-}
-
-.signup-form .form-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 100px 80px;
+  height: 100vh;
+  background-image: url("../../assets/image//background-home-img.svg");
+  background-size: cover;
+  background-position: left top;
+  background-repeat: no-repeat;
 }
 
-.signup-form .form-group input {
+.register-form-container,
+.info-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  max-width: 500px;
 }
 
-.signup-form .form-row .form-group {
-  width: 48%;
-  /* padding: 5px; */
+.register-form-container {
+  max-width: 400px;
 }
 
+.info-section {
+  max-width: 600px;
+}
 
+.SignupForm {
+  display: flex;
+  flex-direction: column;
+}
 
-.signup-form .submit-btn {
-  background-color: #3b82f6; /* Blue color similar to screenshot */
+.SignupForm input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.fullName {
+  display: flex;
+  gap: 10px;
+}
+
+.fullName input {
+  flex: 1;
+}
+
+.btnJoin {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
   color: white;
-  padding: 10px;
-  width: 100%;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 1rem;
+  margin-top: 20px;
 }
 
-.signup-form .submit-btn:hover {
-  background-color: #2563eb;
+.btnJoin:hover {
+  background-color: #0056b3;
 }
 
-.password-toggle {
-  float: right;
-  cursor: pointer;
-  color: #888;
-  font-size: 14px;
+small {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  margin-bottom: 20px;
 }
 
-.error {
-  color: red;
-  font-size: 12px;
+small a {
+  color: #007bff;
 }
 
-.success-message {
-  text-align: center;
-  color: green;
+small a:hover {
+  text-decoration: underline;
 }
 
-/* Extra for links */
-.signup-container a {
-  color:#DA7000; /* Orange color as per screenshot */
+.header {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.firstAlreadyhaveAcc,
+.already-account {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.login-link {
+  color: #007bff;
   text-decoration: none;
 }
 
-.signup-container a:hover {
+.login-link:hover {
   text-decoration: underline;
+}
+
+/* Right-side info section */
+/* .info-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.info-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+} */
+.info-section
+ {
+  width: 50%;
+  padding-left: 50px;
+}
+
+.info-section
+ h2 {
+  color: #d53b02;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.info-section
+ p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.how-it-works-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.how-it-works-btn:hover {
+  background-color: #e55d00;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .SignUpContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register-form-container,
+  .info-section {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .register-form-container {
+    padding: 20px;
+  }
+
+  .info-section {
+    padding: 20px;
+  }
+
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .SignupForm input,
+  .btnJoin {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .info-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-section p {
+    font-size: 0.95rem;
+  }
+
+  .how-it-works-btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .SignUpContainer {
+    padding: 10px;
+  }
+
+  .register-form-container,
+  .info-section {
+    padding: 15px;
+  }
+
+  .fullName {
+    flex-direction: column;
+  }
+
+  .info-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .how-it-works-btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
 }

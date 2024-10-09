@@ -1,153 +1,106 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import axios from "../../axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignUp.css";
+import "./signup.css"; // Import the CSS file
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
+  const navigate = useNavigate();
+  const userNameDom = useRef(null);
+  const fistNameDom = useRef(null);
+  const lastNameDom = useRef(null);
+  const emailDom = useRef(null);
+  const passwordDom = useRef(null);
 
-  const [errors, setErrors] = useState({});
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.firstName) newErrors.firstName = "First name is required";
-    if (!formData.lastName) newErrors.lastName = "Last name is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    const usernameValue = userNameDom.current.value;
+    const firstnameValue = fistNameDom.current.value;
+    const lastnameValue = lastNameDom.current.value;
+    const emailValue = emailDom.current.value;
+    const passwordValue = passwordDom.current.value;
+    if (
+      !usernameValue ||
+      !firstnameValue ||
+      !lastnameValue ||
+      !emailValue ||
+      !passwordValue
+    ) {
+      alert("please provide all required information");
       return;
     }
-
     try {
-      const response = await axios.post(
-        "https://api.yourbackend.com/signup",
-        formData
-      );
-      console.log("Registration successful:", response.data);
-      setSubmitted(true);
+      await axios.post("/users/register", {
+        username: usernameValue,
+        firstname: firstnameValue,
+        lastname: lastnameValue,
+        email: emailValue,
+        password: passwordValue,
+      });
+      alert("registered successfully. Please login");
+      navigate("/login");
     } catch (error) {
-      console.error("Error registering user:", error);
+      alert("Something went wrong");
+      console.log(error.response);
     }
-  };
+  }
 
   return (
-    <div className="signup-background">
-      <div className="signup-container">
-        <h3>Join the network</h3>
-        <p>
-          Already have an account? <a href="/SignIn">Sign In</a>
+    <div className="SignUpContainer">
+      <div className="register-form-container">
+        <h2 className="header">Join the network</h2>
+        <p className="firstAlreadyhaveAcc">
+          Already have an account?{" "}
+          <Link to="/login" className="login-link">
+            Sign in
+          </Link>
         </p>
-        {submitted ? (
-          <div className="success-message">Registration Successful!</div>
-        ) : (
-          <form onSubmit={handleSubmit} className="signup-form">
-            <div className="form-group">
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={formData.username}
-                onChange={handleChange}
-              />
-              {errors.username && (
-                <span className="error">{errors.username}</span>
-              )}
-            </div>
+        <form className="SignupForm" action="" onSubmit={handleSubmit}>
+          <div>
+            <input ref={userNameDom} type="text" placeholder="Username" />
+          </div>
+          <div className="fullName">
+            <input ref={fistNameDom} type="text" placeholder="First name" />
+            <input ref={lastNameDom} type="text" placeholder="Last name" />
+          </div>
+          <div>
+            <input ref={emailDom} type="email" placeholder="Email address" />
+          </div>
+          <div>
+            <input ref={passwordDom} type="password" placeholder="Password" />
+          </div>
+          <div>
+            <small>
+              {" "}
+              I agree to the <Link to="">privacy policy</Link> and{" "}
+              <Link to="">terms of service</Link>
+            </small>
+          </div>
+          <button className="btnJoin" type="submit">
+            Agree and Join
+          </button>
 
-            <div className="form-row">
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
-                {errors.firstName && (
-                  <span className="error">{errors.firstName}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
-                {errors.lastName && (
-                  <span className="error">{errors.lastName}</span>
-                )}
-              </div>
-            </div>
-
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email address"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-
-            <div className="form-group">
-              <input
-                type={passwordVisible ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              <span
-                className="password-toggle"
-                onClick={() => setPasswordVisible(!passwordVisible)}
-              >
-                {passwordVisible ? "Hide" : "Show"}
-              </span>
-              {errors.password && (
-                <span className="error">{errors.password}</span>
-              )}
-            </div>
-
-            <div className="form-group">
-              <label>
-                I agree to the <a href="#">privacy policy</a> and{" "}
-                <a href="#">terms of service</a>.
-              </label>
-            </div>
-
-            <button type="submit" className="submit-btn">
-              Agree and Join
-            </button>
-          </form>
-        )}
-
+          <Link to="/login" className="login-link">
+            <p className="already-account">Already have an account? </p>
+          </Link>
+        </form>
+      </div>
+      {/* Right-side info section */}
+      <div className="info-section">
+        <h2>Evangadi Networks Q & A</h2>
         <p>
-          Already have an account? <Link to="/SignIn">Sign in</Link>
+          No matter what stage of life you are in, whether you're just starting
+          elementary school or being promoted to CEO of a Fortune 500 company,
+          you have much to offer to those who are trying to follow in your
+          footsteps.
         </p>
+        <p>
+          Whether you are willing to share your knowledge or you are just
+          looking to meet mentors of your own, please start by joining the
+          network here.
+        </p>
+        <Link to="/HowItWorks" className="how-it-works-btn">
+          How it Works
+        </Link>
       </div>
     </div>
   );

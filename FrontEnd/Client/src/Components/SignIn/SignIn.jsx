@@ -4,7 +4,7 @@ import axiosBase from "../../API/axiosConfig"; // Axios instance to handle API r
 import "./SignIn.css"; // Custom styling for the SignIn component
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Eye icon for showing password
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off icon for hiding password
-import "./SignIn.css";
+
 import axios from "axios";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
@@ -120,7 +120,7 @@ function SignIn() {
       </div>
 
       {/* Right-side info section */}
-      <div className="info-section">
+      <div className="info__networks">
         <h2>Evangadi Networks Q & A</h2>
         <p>
           No matter what stage of life you are in, whether you're just starting
@@ -133,7 +133,7 @@ function SignIn() {
           looking to meet mentors of your own, please start by joining the
           network here.
         </p>
-        <Link to="/HowItWorks" className="how-it-works-btn">
+        <Link to="/HowItWorks" className="how-btn">
           How it Works
         </Link>
       </div>

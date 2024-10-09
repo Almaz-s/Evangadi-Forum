@@ -22,7 +22,7 @@ function Answer() {
     }
     const fetch = async () => {
       const response = await axios.post(
-        "http://localhost:3000/api/questions/id",
+        "http://localhost:2200/api/questions/id",
         {
           post_id: userData.singleQestion.post_id,
         }
@@ -34,7 +34,7 @@ function Answer() {
 
   useEffect(() => {
     const get = async () => {
-      const res = await axios.post("http://localhost:3000/api/answers/all", {
+      const res = await axios.post("http://localhost:2200/api/answers/all", {
         question_id: userData.singleQestion.question_id,
       });
       // console.log(res);
@@ -59,7 +59,7 @@ function Answer() {
         return;
       }
 
-      await axios.post("http://localhost:3000/api/answers", {
+      await axios.post("http://localhost:2200/api/answers", {
         answer: form.answer,
         user_id: userData.user.id,
         question_id: post.question_id,

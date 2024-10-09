@@ -119,25 +119,25 @@
 }
 
 /* Styling for the information section on the right */
-.info-section {
+.info__networks {
   width: 50%;
   padding-left: 50px;
 }
 
-.info-section h2 {
+.info__networks h2 {
   color: #d53b02;
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.info-section p {
+.info__networks p {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 20px;
   line-height: 1.6;
 }
 
-.how-it-works-btn {
+.how-btn {
   display: inline-block;
   padding: 10px 20px;
   background-color: #f97316;
@@ -148,7 +148,7 @@
   transition: background-color 0.3s ease;
 }
 
-.how-it-works-btn:hover {
+.how-btn :hover {
   background-color: #f86d38;
 }
 
@@ -165,7 +165,7 @@
     margin-bottom: 30px;
   }
 
-  .info-section {
+  .info__networks {
     width: 100%;
     padding-left: 0;
     text-align: center;
