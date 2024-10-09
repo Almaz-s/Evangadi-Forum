@@ -1,246 +1,146 @@
-/* Reset styles */
-* {
+/* Global styles */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
 }
 
-/* Container styling */
+/* Container for the whole sign-up page */
 .SignUpContainer {
-  margin: 0 auto;
-  /* gap: 50px; */
-
+  justify-content: center;
+  min-height: 60vh;
+  background-color: #f9f9f9;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  padding: 100px 80px;
-  height: 100vh;
+  /* padding: 100px 80px; */
+  padding-left: 100px;
+  margin-top: 10px;
   background-image: url("../../assets/image//background-home-img.svg");
   background-size: cover;
   background-position: left top;
   background-repeat: no-repeat;
 }
 
-.register-form-container,
-.info-section {
-  background-color: white;
-  border-radius: 8px;
-  padding: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Wrapper for the form and info sections */
+.register-form-wrapper {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+/* Form container */
 .register-form-container {
-  max-width: 400px;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.info-section {
-  max-width: 600px;
-}
-
-.SignupForm {
-  display: flex;
-  flex-direction: column;
-}
-
-.SignupForm input {
+/* Input field styling */
+input {
   width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
 }
-
+.visible-password {
+  margin-left: -30px;
+  cursor: pointer;
+  color: #ff8401;
+margin-top: 5%;
+}
+/* Full name section with two input fields */
 .fullName {
   display: flex;
   gap: 10px;
 }
 
 .fullName input {
-  flex: 1;
+  width: 100%;
 }
 
+/* Button styling */
 .btnJoin {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #0066ff;
   color: white;
   border: none;
   border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 1rem;
-  margin-top: 20px;
 }
 
 .btnJoin:hover {
-  background-color: #0056b3;
+  background-color: #0051cc;
 }
 
-small {
-  font-size: 0.85rem;
-  color: #666;
-  display: block;
+/* Info section */
+.info-section {
+  /* background-color: #f3f3f3; */
+  padding: 30px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
-small a {
-  color: #007bff;
-}
-
-small a:hover {
-  text-decoration: underline;
-}
-
-.header {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.firstAlreadyhaveAcc,
-.already-account {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.login-link {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.login-link:hover {
-  text-decoration: underline;
-}
-
-/* Right-side info section */
-/* .info-section h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.info-section p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-} */
-.info-section
- {
-  width: 50%;
-  padding-left: 50px;
-}
-
-.info-section
- h2 {
-  color: #d53b02;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.info-section
- p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
+/* How it works button */
 .how-it-works-btn {
   display: inline-block;
-  padding: 12px 20px;
-  background-color: #ff6600;
+  padding: 10px 20px;
+  background-color: #ff6b00;
   color: white;
-  text-decoration: none;
   border-radius: 5px;
-  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .how-it-works-btn:hover {
-  background-color: #e55d00;
+  background-color: #e65c00;
 }
 
-/* Footer styles */
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 1024px) {
+/* Small screens (Mobile first approach) */
+@media (max-width: 968px) {
   .SignUpContainer {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
-  .register-form-container,
-  .info-section {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .register-form-container {
-    padding: 20px;
-  }
-
-  .info-section {
-    padding: 20px;
-  }
-
-  .header {
-    font-size: 1.5rem;
-  }
-
-  .SignupForm input,
-  .btnJoin {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .info-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .info-section p {
-    font-size: 0.95rem;
-  }
-
-  .how-it-works-btn {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .SignUpContainer {
-    padding: 10px;
-  }
-
-  .register-form-container,
-  .info-section {
-    padding: 15px;
-  }
-
-  .fullName {
+  .register-form-wrapper {
+    display: flex;
     flex-direction: column;
   }
 
-  .info-section h2 {
-    font-size: 1.4rem;
+  .info-section {
+    margin-top: 20px;
+    display: none;
+  }
+}
+
+/* Large screens (Desktop) */
+@media (min-width: 769px) {
+  .SignUpContainer {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  .how-it-works-btn {
-    font-size: 0.9rem;
-    padding: 10px 15px;
+  .register-form-wrapper {
+    display: flex;
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .info-section {
+    width: 50%;
+    margin-left: 20px;
+  }
+
+  .register-form-container {
+    width: 50%;
   }
 }
