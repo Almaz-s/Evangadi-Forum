@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import axios from "../../axiosConfig";
 import "./submitAnswer.css"; // Link to CSS
 import AnswersList from "../Answer/AnswerList";
+import { useNavigate } from "react-router-dom";
 
 const SubmitAnswer = ({ questionid }) => {
   // Receive questionid as prop
   const [answer, setAnswer] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
+  const navigate= useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const SubmitAnswer = ({ questionid }) => {
         }
       );
       setResponseMessage(response.data.msg); // Display success message
+      navigate("/allQuestions");
     } catch (error) {
       setResponseMessage(
         error.response?.data?.msg || "An unexpected error occurred."

@@ -65,7 +65,7 @@
 }
 
 .form textarea {
-  height: 80px;
+  height: 130px;
   resize: none;
 }
 
@@ -80,7 +80,6 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 60px;
 }
 
 .button:hover {

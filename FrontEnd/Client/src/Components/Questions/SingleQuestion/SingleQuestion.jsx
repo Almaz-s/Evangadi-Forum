@@ -43,31 +43,35 @@ const SingleQuestion = () => {
     fetchQuestion();
   }, [questionid]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-
   return (
     <div className="single_question_container">
-      <div className="questionHeader">
-        <p>QUESTION</p>
-      </div>
-      <div>
-        <div className="question_title_wrapper">
-          <span className="question_title">
-            <h2>
-              {" "}
-              <FaArrowCircleRight style={{ color: " #007bff" }} />{" "}
-              {question.title}
-            </h2>
-          </span>
-          <hr />
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <div>
+          <div className="questionHeader">
+            <p>QUESTION</p>
+          </div>
+          <div>
+            <div className="question_title_wrapper">
+              <span className="question_title">
+                <h2>
+                  <FaArrowCircleRight style={{ color: " #007bff" }} />{" "}
+                  {question.title}
+                </h2>
+              </span>
+              <hr />
+            </div>
+            <div className="question-desc">
+              <p className="question-description">{question.description}</p>
+              <hr />
+            </div>
+            <SubmitAnswer questionid={questionid} />
+          </div>
         </div>
-        <div className="question-desc">
-          <p className="question-description">{question.description}</p>
-          <hr />
-        </div>
-        <SubmitAnswer questionid={questionid} />
-      </div>
+      )}
     </div>
   );
 };

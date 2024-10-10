@@ -7,7 +7,6 @@ import "./answerList.css";
 const AnswersList = () => {
   const { questionid } = useParams(); // Extract questionid from the URL
   const [answers, setAnswers] = useState([]); // State to store answers
-  const [newAnswer, setNewAnswer] = useState(""); // State for new answer input
   const [error, setError] = useState(""); // State to handle errors
   const [loading, setLoading] = useState(true); // State to handle loading
 
