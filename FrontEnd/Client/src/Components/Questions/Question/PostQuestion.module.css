@@ -57,6 +57,7 @@
   border-radius: 5px;
   font-size: 14px;
   color: #333;
+  margin-bottom:20px ;
 }
 
 .form input[type="text"]::placeholder,
