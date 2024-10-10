@@ -95,7 +95,7 @@ const SignUp = () => {
             Agree and Join
           </button>
         </form>
-        <Link to="/login" className="signin-link">
+        <Link to="/SignIn" className="signin-link">
           <p className="already-account">Already have an account? </p>
         </Link>
       </div>
