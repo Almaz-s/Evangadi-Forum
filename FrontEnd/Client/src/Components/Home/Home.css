@@ -84,6 +84,11 @@
   color: black;
   text-align: left;
   padding-left: 50px;
+ 
+}
+.question-content .question-title p {
+ list-style-type: none;
+ text-decoration: none;
 }
 
 .question-author {
