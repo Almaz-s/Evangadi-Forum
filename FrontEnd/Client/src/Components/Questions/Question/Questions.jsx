@@ -3,6 +3,7 @@ import axios from "../../../axiosConfig";
 import "./PostQuestion.module.css";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import styles from "./PostQuestion.module.css"
 
 const Questions = () => {
   const [title, setTitle] = useState("");
