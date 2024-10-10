@@ -9,6 +9,8 @@
   color: #ffffff; /* White text color */
   display: flex;
   justify-content: center;
+   bottom: 0;
+
 }
 
 .links_wrapper {

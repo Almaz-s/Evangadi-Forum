@@ -39,23 +39,28 @@ const AnswersList = () => {
   if (loading) return <p>Loading answers...</p>;
 
   return (
-    <div>
+    <div className="answer_wrapper">
       <h3>Answers From The Community</h3>
+      <hr />
       {error ? (
         <p>{error}</p>
       ) : (
-        <ul className="answer_container">
-          {answers.map((answer) => (
-            <li key={answer.answerid}>
-              <small>
-                {" "}
-                <FaUserCircle />
-                <p>{answer.username}</p>
-              </small>
-              <p>{answer.answer}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="answer_container">
+          <ul>
+            {answers.map((answer) => (
+              <li key={answer.answerid}>
+                <div className="user_answer_container">
+                  {" "}
+                  <p>
+                    <FaUserCircle />
+                  </p>
+                  <p className="user">{answer.username}</p>
+                </div>
+                <p>{answer.answer}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

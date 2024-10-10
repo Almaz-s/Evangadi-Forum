@@ -107,7 +107,7 @@ function SignIn() {
               required
             />
             <span className="show-password" onClick={togglePasswordVisibility}>
-              {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}{" "}
+              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}{" "}
               {/* Toggle visibility icon */}
             </span>
           </div>
