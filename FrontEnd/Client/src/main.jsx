@@ -1,10 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import React from "react";
+import ReactDom from 'react-dom/client'
+import { createRoot } from "react-dom/client"; // Correct import for React 18
+import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+// Create a root container
+const container = document.getElementById("root");
+const root = createRoot(container); // Initialize the React 18 root
+
+root.render(
+  <BrowserRouter>
     <App />
-  </StrictMode>
+  </BrowserRouter>
 );

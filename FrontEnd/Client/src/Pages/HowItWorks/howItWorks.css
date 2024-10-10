@@ -2,14 +2,39 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 .how-it-works h1 {
   text-align: center;
   margin-top: 130px;
   background-image: url("../../assets/image/bg-transparent6.png");
-  background-size: cover;
- height: 20vh;
- justify-content: center;
+  background-size: contain;
+  height: 20vh;
+  justify-content: center;
+  background-position: top;
+ 
+}
+.how-it-works p h3 {
+padding-left: 40px !important;
 }
 
+@media (max-width: 480px) {
+  .how-it-works-page h1 {
+    font-size: 2rem;
+  }
+
+  .how-it-works-page .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .how-it-works-page .section p,
+  .how-it-works-page .section ul li {
+    font-size: 0.9rem;
+   
+  }
+
+  .footer {
+    padding: 20px;
+  }
+}

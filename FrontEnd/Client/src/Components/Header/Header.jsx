@@ -1,12 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
-import "./header.css";
 
-const Header = () => {
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import classes from "./header.module.css";
+import { AppState } from "../../App";
+
+function Header() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(AppState);
+
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear the token from localStorage
+    setUser(null); // Reset the user state
+    navigate("/SignIn"); // Navigate to the login page
+  };
+
+  const isUserLoggedIn = !!token; // Boolean to check if the user is logged in
+
+
   return (
-    <header className="header">
-      {/* Logo section, linking back to the homepage */}
-      <div className="logo">
+
+    <header className={classes.header}>
+      {/* Logo Section */}
+      <div className={classes.logo}>
+
         <Link to="/">
           <img
             src="https://www.evangadi.com/themes/humans//assets/images/misc/evangadi-logo-home.png"
@@ -15,19 +33,35 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Navigation section with links to different pages */}
-      <nav className="nav-links">
-        <Link to="/">Home</Link> {/* Link to Home page */}
-        <Link to="/HowItWorks">How it Works</Link>{" "}
-        {/* Link to How it Works page */}
-        <Link to="/SignIn" className="login-btn">
-          {" "}
-          {/* Link to Sign In page */}
-          SIGN IN
-        </Link>
-      </nav>
+
+      {/* Navigation Links */}
+      <div className={classes.navSection}>
+        <ul className={classes.navLinks}>
+          <li>
+            <Link to="/" className={classes.navButton}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/HowItWorks" className={classes.navButton}>
+              How it works
+            </Link>
+          </li>
+
+          {isUserLoggedIn ? (
+            <button onClick={handleLogout} className={classes.buttonPrimary}>
+              Sign Out
+            </button>
+          ) : (
+            <Link to="/SignIn" className={classes.loginBtn}>
+              <button className={classes.buttonPrimary}>Sign In</button>
+            </Link>
+          )}
+        </ul>
+      </div>
+
     </header>
   );
-};
+}
 
 export default Header;
