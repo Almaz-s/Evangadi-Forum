@@ -1,0 +1,76 @@
+* [33m16b1a02[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mlidu-branch[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Question page css fixed
+* [33m08da885[m Front end and back end coordination
+* [33m43f784f[m modify app.js
+* [33ma9dda85[m error fixed
+* [33m80599c5[m css updated
+* [33mdba12ba[m css updated, signup page fixed
+* [33m871b08b[m updated signIn page
+* [33mb990a5d[m fixed backend
+*   [33m5da696d[m Merge pull request #10 from Almaz-s/bettyk
+[32m|[m[33m\[m  
+[32m|[m * [33m555b99b[m[33m ([m[1;31morigin/bettyk[m[33m)[m added Homepage
+[32m|[m[32m/[m  
+*   [33ma9ce971[m Merge pull request #9 from Almaz-s/lidu-branch
+[34m|[m[35m\[m  
+[34m|[m *   [33m2d85025[m[33m ([m[1;31morigin/lidu-branch[m[33m)[m Merge branch 'main' into lidu-branch
+[34m|[m [36m|[m[34m\[m  
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m [33md9e1f0a[m modify
+* [36m|[m   [33m8818b68[m Merge branch 'main' of https://github.com/Almaz-s/Evangadi-Forum
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m * [36m|[m [33m11f6dc7[m question controller and rout added
+[1;32m|[m * [36m|[m   [33m3166fe2[m Merge pull request #8 from Almaz-s/lidu-branch
+[1;32m|[m [1;34m|[m[1;35m\[m [36m\[m  
+* [1;34m|[m [1;35m|[m [36m|[m [33me3ab9f0[m modified routs and controller
+[1;34m|[m[1;34m/[m [1;35m/[m [36m/[m  
+[1;34m|[m [1;35m|[m * [33m4accf5c[m different miner modifications
+[1;34m|[m [1;35m|[m[1;35m/[m  
+[1;34m|[m *   [33m1c10dd9[m Merge branch 'main' into lidu-branch
+[1;34m|[m [1;36m|[m[1;34m\[m  
+[1;34m|[m [1;36m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;36m|[m   
+* [1;36m|[m [33mb39053f[m signIn page &styling added
+* [1;36m|[m [33m9adb595[m[33m ([m[1;31mupstream/main[m[33m, [m[1;31mupstream/HEAD[m[33m)[m css updated , axiosConfig created
+[31m|[m * [33ma7dd96b[m add question control and and add db information in .env
+[31m|[m [31m|[m * [33mc9b1105[m[33m ([m[1;31morigin/almi-branch[m[33m)[m sign up updated
+[31m|[m [31m|[m [32m|[m * [33mbbc6139[m[33m ([m[1;31mupstream/almi_2[m[33m, [m[1;31morigin/almi_2[m[33m)[m merge confilict resolved
+[31m|[m [31m|[m[31m_[m[32m|[m[31m/[m  
+[31m|[m[31m/[m[31m|[m [32m|[m   
+* [31m|[m [32m|[m [33m6fbdfb5[m Merge pull request #6 from Almaz-s/lidu-branch
+[34m|[m[31m\[m[31m|[m [32m|[m 
+[34m|[m * [32m|[m [33mce2960c[m[33m ([m[1;31mupstream/lidu-branch[m[33m)[m added backend
+[34m|[m[34m/[m [32m/[m  
+* [32m|[m   [33mb3b986f[m Merge pull request #5 from Almaz-s/branch-betelhem
+[36m|[m[1;31m\[m [32m\[m  
+[36m|[m * [32m\[m   [33m803fb9e[m[33m ([m[1;31mupstream/branch-betelhem[m[33m, [m[1;31morigin/branch-betelhem[m[33m)[m Resolved merge conflicts n App.jsx
+[36m|[m [1;32m|[m[36m\[m [32m\[m  
+[36m|[m [1;32m|[m[36m/[m [32m/[m  
+[36m|[m[36m/[m[1;32m|[m [32m|[m   
+* [1;32m|[m [32m|[m   [33m7866d72[m Merge pull request #4 from Almaz-s/answer-page
+[1;34m|[m[1;35m\[m [1;32m\[m [32m\[m  
+[1;34m|[m * [1;32m|[m [32m|[m [33md5b96ea[m[33m ([m[1;31mupstream/answer-page[m[33m, [m[1;31morigin/answer-page[m[33m)[m Resolved merge conflicts
+[1;34m|[m[1;34m/[m [1;32m/[m [32m/[m  
+[1;34m|[m * [32m/[m [33ma9a0cad[m add forgotpassword component
+[1;34m|[m[1;34m/[m [32m/[m  
+* [32m|[m   [33m55e7008[m Merge branch 'main' of https://github.com/Almaz-s/Evangadi-Forum
+[1;36m|[m[31m\[m [32m\[m  
+[1;36m|[m * [32m\[m   [33m53dde5c[m Merge pull request #2 from Almaz-s/berhan-branch
+[1;36m|[m [32m|[m[33m\[m [32m\[m  
+[1;36m|[m [32m|[m * [32m\[m   [33mb5201fc[m[33m ([m[1;31mupstream/berhan-branch[m[33m, [m[1;31morigin/berhan-branch[m[33m)[m Merge branch 'main' into berhan-branch
+[1;36m|[m [32m|[m [34m|[m[32m\[m [32m\[m  
+[1;36m|[m [32m|[m [34m|[m[32m/[m [32m/[m  
+[1;36m|[m [32m|[m[32m/[m[34m|[m [32m|[m   
+[1;36m|[m * [34m|[m [32m|[m [33m89815b3[m add sign in form (#1)
+[1;36m|[m [32m|[m [34m|[m[32m/[m  
+[1;36m|[m [32m|[m[32m/[m[34m|[m   
+[1;36m|[m [32m|[m * [33me1995a2[m  added how it works component and home page edited
+[1;36m|[m [32m|[m[32m/[m  
+* [32m/[m [33mc7d3563[m sign up component added
+[32m|[m[32m/[m  
+[32m|[m * [33m7734bd0[m[33m ([m[1;31mupstream/mimi-branch[m[33m, [m[1;31morigin/mimi-branch[m[33m)[m  sign in page update
+[32m|[m * [33mf72e9da[m add sign in form
+[32m|[m[32m/[m  
+[32m|[m * [33mbf6172e[m[33m ([m[1;31mupstream/luwam-branch[m[33m, [m[1;31morigin/luwam-branch[m[33m)[m add about component
+[32m|[m[32m/[m  
+* [33me6212fc[m Add header and footer components
