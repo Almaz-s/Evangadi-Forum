@@ -1,0 +1,33 @@
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 29px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+.subtitle {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.paragraph {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
