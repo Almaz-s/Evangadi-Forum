@@ -88,7 +88,7 @@
 .show-password {
   margin-left: -30px;
   cursor: pointer;
- color: #ff8401;
+  color: #ff8401;
 }
 
 .forgot-password {
@@ -117,10 +117,13 @@
 .login-btn:hover {
   background-color: #f97316;
 }
+.abt-login {
+  color: #ff9933;
+}
 
 /* Styling for the information section on the right */
-.about{
-  color:#f97316; 
+.about {
+  color: #f97316;
 }
 .info__networks {
   width: 50%;
@@ -128,7 +131,7 @@
 }
 
 .info__networks h1 {
-  color: #4F466F;
+  color: #4f466f;
 
   margin-bottom: 20px;
 }

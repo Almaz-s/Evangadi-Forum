@@ -1,11 +1,9 @@
-/* .SignUpContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #f7f7f7;
-  padding: 40px 100px;
-  margin: 0 auto;
-} */
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
 /* Container for the whole sign-up page */
 .SignUpContainer {
@@ -136,6 +134,9 @@ small a {
 }
 
 .signin-link p {
+  color: #ff9933;
+}
+.abt {
   color: #ff9933;
 }
 

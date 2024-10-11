@@ -135,7 +135,10 @@ function SignIn() {
 
           {/* Right-side info section */}
           <div className="info__networks">
+            <h3 className="abt-login">About</h3>
+            <br />
             <h2>Evangadi Networks Q & A</h2>
+            <br />
             <p>
               No matter what stage of life you are in, whether you're just
               starting elementary school or being promoted to CEO of a Fortune
