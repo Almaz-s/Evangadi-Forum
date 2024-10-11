@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "../../axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import "./signUp.css";
+import "./SignUp";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
