@@ -8,7 +8,7 @@ const SubmitAnswer = ({ questionid }) => {
   // Receive questionid as prop
   const [answer, setAnswer] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
