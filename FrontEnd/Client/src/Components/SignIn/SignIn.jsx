@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axiosBase from "../../API/axiosConfig"; // Axios instance to handle API requests
 import "./SignIn.css"; // Custom styling for the SignIn component
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Eye icon for showing password
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off icon for hiding password
+import AppState from "../../App";
 
 function SignIn() {
+  const { user, setUser } = useContext(AppState);
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errorMessage, setErrorMessage] = useState(""); // State to handle error messages
   const [processing, setProcessing] = useState(false); // State to handle login process state
@@ -56,6 +58,7 @@ function SignIn() {
           console.log("LoginResponse", response.data);
           navigate("/allQuestions"); // Redirect to QuestionDetail page after login
           // alert("Login successful!");
+          setUser(response.data);
         })
         .catch((error) => {
           console.log(error);
