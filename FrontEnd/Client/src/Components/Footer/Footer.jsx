@@ -1,9 +1,9 @@
 import React from "react";
-import "./footer.css"; 
-import logo from "../../assets/image/evangadi-logo-footer.png"; 
+import "./footer.css";
+import logo from "../../assets/image/evangadi-logo-footer.png";
 import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6"; 
-import { IoLogoYoutube } from "react-icons/io"; 
+import { FaInstagram } from "react-icons/fa6";
+import { IoLogoYoutube } from "react-icons/io";
 import { Link } from "react-router-dom"; // I
 
 const Footer = () => {
@@ -39,10 +39,10 @@ const Footer = () => {
                 <Link to="HowItWorks">How it works</Link>
               </li>
               <li>
-                <Link to="">Terms of Service</Link>
+                <Link to="/Terms">Terms of Service</Link>
               </li>
               <li>
-                <Link to="">Privacy policy</Link>
+                <Link to="/">Privacy policy</Link>
               </li>
             </ul>
           </div>

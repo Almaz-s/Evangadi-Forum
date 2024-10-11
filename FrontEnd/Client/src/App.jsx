@@ -11,6 +11,8 @@ import { useEffect, useState, createContext } from "react"; // Import hooks and 
 import Home from "./Components/Home/Home";
 import SingleQuestion from "./Components/Questions/SingleQuestion/SingleQuestion";
 import Questions from "./Components/Questions/Question/Questions";
+import TermsAndConditions from "./Pages/TermsAndConditions/Terms";
+// import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
 
 export const AppState = createContext(); // Create context for global state
 
@@ -67,6 +69,11 @@ function App() {
           element={<SingleQuestion />}
         ></Route>
         <Route path="/HowItWorks" element={<HowItWorks />} />{" "}
+        <Route path="/Terms" element={<TermsAndConditions />} />
+        {/* <Route
+          path="/privacyPolicy"
+          element={<PrivacyPolicy />}
+        ></Route> */}
         <Route
           path="/allQuestions"
           element={loading ? <p>Loading...</p> : <Home />}
