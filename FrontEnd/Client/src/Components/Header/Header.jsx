@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./header.module.css";
@@ -17,10 +18,13 @@ function Header() {
 
   const isUserLoggedIn = !!token; // Boolean to check if the user is logged in
 
+
   return (
+
     <header className={classes.header}>
       {/* Logo Section */}
       <div className={classes.logo}>
+
         <Link to="/">
           <img
             src="https://www.evangadi.com/themes/humans//assets/images/misc/evangadi-logo-home.png"
@@ -28,6 +32,7 @@ function Header() {
           />
         </Link>
       </div>
+
 
       {/* Navigation Links */}
       <div className={classes.navSection}>
@@ -54,6 +59,7 @@ function Header() {
           )}
         </ul>
       </div>
+
     </header>
   );
 }

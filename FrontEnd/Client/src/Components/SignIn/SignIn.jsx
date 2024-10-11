@@ -7,7 +7,11 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off ic
 import AppState from "../../App";
 
 function SignIn() {
+<<<<<<< HEAD
   // const { user, setUser } = useContext(AppState) || {};
+=======
+  
+>>>>>>> main
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errorMessage, setErrorMessage] = useState(""); // State to handle error messages
   const [processing, setProcessing] = useState(false); // State to handle login process state
@@ -133,6 +137,7 @@ function SignIn() {
             </form>
           </div>
 
+<<<<<<< HEAD
           {/* Right-side info section */}
           <div className="info__networks">
             <h2>Evangadi Networks Q & A</h2>
@@ -154,6 +159,40 @@ function SignIn() {
         </div>
       )}
     </>
+=======
+          <button type="submit" className="login-btn" disabled={processing}>
+            {processing ? "Logging in..." : "Login"}{" "}
+            {/* Show processing state */}
+          </button>
+
+          {/* Display error message if present */}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </form>
+      </div>
+
+      {/* Right-side info section */}
+      <div className="info__networks">
+        <h3 className="about">About</h3>
+        <br />
+        <h1>Evangadi Networks Q & A</h1>
+        <br />
+        <p>
+          No matter what stage of life you are in, whether you're just starting
+          elementary school or being promoted to CEO of a Fortune 500 company,
+          you have much to offer to those who are trying to follow in your
+          footsteps.
+        </p>
+        <p>
+          Whether you are willing to share your knowledge or you are just
+          looking to meet mentors of your own, please start by joining the
+          network here.
+        </p>
+        <Link to="/HowItWorks" className="how-btn">
+          How it Works
+        </Link>
+      </div>
+    </div>
+>>>>>>> main
   );
 }
 

@@ -68,7 +68,8 @@ const SingleQuestion = () => {
               <p className="question-description">{question.description}</p>
               <hr />
             </div>
-            <SubmitAnswer questionid={questionid} />
+                <SubmitAnswer questionid={questionid} />
+              
           </div>
         </div>
       )}

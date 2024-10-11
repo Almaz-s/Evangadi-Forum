@@ -8,7 +8,7 @@ const SubmitAnswer = ({ questionid }) => {
   // Receive questionid as prop
   const [answer, setAnswer] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,9 +47,18 @@ const SubmitAnswer = ({ questionid }) => {
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
         />
-        <button type="submit" className="submit-button">
-          Post Answer
-        </button>
+        <div className="button-container">
+          <button type="submit" className="submit-button">
+            Post Answer
+          </button>
+          <button
+            type="button"
+            className="back-button"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
       </form>
 
       {responseMessage && <p className="response-message">{responseMessage}</p>}

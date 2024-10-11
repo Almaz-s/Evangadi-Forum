@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import axios from "../../axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import "./signup.css"; // Import the CSS file
+import "./signUp.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
   const userNameDom = useRef(null);
-  const fistNameDom = useRef(null);
+  const firstNameDom = useRef(null);
   const lastNameDom = useRef(null);
   const emailDom = useRef(null);
   const passwordDom = useRef(null);
@@ -16,7 +16,7 @@ const SignUp = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const usernameValue = userNameDom.current.value;
-    const firstnameValue = fistNameDom.current.value;
+    const firstnameValue = firstNameDom.current.value;
     const lastnameValue = lastNameDom.current.value;
     const emailValue = emailDom.current.value;
     const passwordValue = passwordDom.current.value;
@@ -57,7 +57,7 @@ const SignUp = () => {
         <h2 className="header">Join the network</h2>
         <p className="firstAlreadyhaveAcc">
           Already have an account?{" "}
-          <Link to="/login" className="signin-link">
+          <Link to="/SignIn" className="signin-link">
             Sign in
           </Link>
         </p>
@@ -66,7 +66,7 @@ const SignUp = () => {
             <input ref={userNameDom} type="text" placeholder="Username" />
           </div>
           <div className="fullName">
-            <input ref={fistNameDom} type="text" placeholder="First name" />
+            <input ref={firstNameDom} type="text" placeholder="First name" />
             <input ref={lastNameDom} type="text" placeholder="Last name" />
           </div>
           <div>
@@ -95,13 +95,16 @@ const SignUp = () => {
             Agree and Join
           </button>
         </form>
-        <Link to="/login" className="signin-link">
+        <Link to="/SignIn" className="signin-link">
           <p className="already-account">Already have an account? </p>
         </Link>
       </div>
 
       <div className="info-section">
-        <h2>Evangadi Networks Q & A</h2>
+        <h3 className="abt">About</h3>
+        <br />
+        <h1 className="ev-color">Evangadi Networks Q & A</h1>
+        <br />
         <p>
           No matter what stage of life you are in, whether you're just starting
           elementary school or being promoted to CEO of a Fortune 500 company,

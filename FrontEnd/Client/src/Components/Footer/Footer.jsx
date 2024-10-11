@@ -1,16 +1,21 @@
 import React from "react";
-import "./footer.css";
-import logo from "../../assets/image/evangadi-logo-footer.png";
+import "./footer.css"; 
+import logo from "../../assets/image/evangadi-logo-footer.png"; 
 import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
-import { IoLogoYoutube } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa6"; 
+import { IoLogoYoutube } from "react-icons/io"; 
+import { Link } from "react-router-dom"; // I
+
 const Footer = () => {
   return (
     <section className={`footer_container`}>
+      {/* Wrapper for the footer logo and social media links */}
       <section className={`links_wrapper`}>
         <div className="logo_container">
+          {/* Displaying the footer logo */}
           <img className="footer_logo" src={logo} alt="evangadi-logo" />
+
+          {/* Social media links: Facebook, Instagram, YouTube */}
           <div className="socialMedia_links">
             <Link to="https://www.facebook.com/evangaditech" target="_blank">
               <FaFacebook />
@@ -23,10 +28,13 @@ const Footer = () => {
             </Link>
           </div>
         </div>
+
+        {/* Useful links and contact information section */}
         <div className="footer_links">
+          {/* Useful Links List */}
           <div>
             <ul className="useful_links">
-              <li>Useful Link</li>
+              <li>Useful Links</li>
               <li>
                 <Link to="HowItWorks">How it works</Link>
               </li>
@@ -38,6 +46,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          {/* Contact Information */}
           <div className="contact">
             <ul>
               <li className="title">Contact Info</li>

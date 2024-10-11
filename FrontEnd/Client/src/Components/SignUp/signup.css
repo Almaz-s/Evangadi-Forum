@@ -1,157 +1,11 @@
-/* Global styles */
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-} */
-
-/* Container for the whole sign-up page */
-/* .SignUpContainer {
-  justify-content: center;
-  min-height: 60vh;
-  background-color: #f9f9f9;
-  padding: 20px;
-  display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* padding: 100px 80px; */
-  /* padding-left: 100px;
-  margin-top: 10px;
-  background-image: url("../../assets/image//background-home-img.svg");
-  background-size: cover;
-  background-position: left top;
-  background-repeat: no-repeat;
-} */
-
-/* Wrapper for the form and info sections */
-/* .register-form-wrapper {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-} */
-
-/* Form container */
-/* .register-form-container {
-  background-color: #fff;
-  padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin-bottom: 20px;
-} */
-
-/* Input field styling */
-/* input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.visible-password {
-  margin-left: -30px;
-  cursor: pointer;
-  color: #ff8401;
-margin-top: 5%;
-}
-/* Full name section with two input fields */
-/* .fullName {
-  display: flex;
-  gap: 10px;
-}
-
-.fullName input {
-  width: 100%;
-} */
-
-/* Button styling */
-/* .btnJoin {
-  width: 100%;
-  padding: 12px;
-  background-color: #0066ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.btnJoin:hover {
-  background-color: #0051cc;
-} */
-
-/* Info section */
-/* .info-section { */
-  /* background-color: #f3f3f3; */
-  /* padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-} */
-
-/* How it works button */
-/* .how-it-works-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff6b00;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.how-it-works-btn:hover {
-  background-color: #e65c00;
-} */
-
-/* Small screens (Mobile first approach) */
-/* @media (max-width: 968px) {
-  .SignUpContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .register-form-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .info-section {
-    margin-top: 20px;
-    display: none;
-  }
-} */
-
-/* Large screens (Desktop) */
-/* @media (min-width: 769px) {
-  .SignUpContainer {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .register-form-wrapper {
-    display: flex;
-    flex: 1;
-    margin-right: 20px;
-  }
-
-  .info-section {
-    width: 50%;
-    margin-left: 20px;
-  }
-
-  .register-form-container {
-    width: 50%;
-  }
-} */
 .SignUpContainer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: flex-start;
   background-color: #f7f7f7;
   padding: 40px 100px;
   margin: 0 auto;
-  
+
   /* flex-wrap: wrap;  */
 }
 
@@ -162,7 +16,6 @@ margin-top: 5%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 40%;
   margin-bottom: 20px; /* Add some margin to avoid overlap when stacked */
-
 }
 
 .info-section {
@@ -224,10 +77,13 @@ margin-top: 5%;
 .btnJoin:hover {
   background-color: #254eda;
 }
+.abt {
+  color: #ff9933;
+}
 
-.info-section h2 {
-  font-size: 22px;
-  color: #2c2c2c;
+ .info-section h1{
+  color: #4f466f;
+  font-size: 32px;
 }
 
 .info-section p {
@@ -235,13 +91,12 @@ margin-top: 5%;
   color: #4a4a4a;
 }
 
-small a{
+small a {
   color: #ff9933;
   text-decoration: none;
-  
 }
-.agree-to-join{
-text-align: center;
+.agree-to-join {
+  text-align: center;
   margin: 20px 0;
 }
 .how-it-works-btn {
