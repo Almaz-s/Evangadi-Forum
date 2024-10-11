@@ -124,7 +124,10 @@ function SignIn() {
 
       {/* Right-side info section */}
       <div className="info__networks">
-        <h2>Evangadi Networks Q & A</h2>
+        <h3 className="about">About</h3>
+        <br />
+        <h1>Evangadi Networks Q & A</h1>
+        <br />
         <p>
           No matter what stage of life you are in, whether you're just starting
           elementary school or being promoted to CEO of a Fortune 500 company,

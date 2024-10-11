@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "../../axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import "./signup.css"; // Import the CSS file
+import "./signUp.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
@@ -95,13 +95,16 @@ const SignUp = () => {
             Agree and Join
           </button>
         </form>
-        <Link to="/login" className="signin-link">
+        <Link to="/SinIn" className="signin-link">
           <p className="already-account">Already have an account? </p>
         </Link>
       </div>
 
       <div className="info-section">
-        <h2>Evangadi Networks Q & A</h2>
+        <h3 className="abt">About</h3>
+        <br />
+        <h1 className="ev-color">Evangadi Networks Q & A</h1>
+        <br />
         <p>
           No matter what stage of life you are in, whether you're just starting
           elementary school or being promoted to CEO of a Fortune 500 company,

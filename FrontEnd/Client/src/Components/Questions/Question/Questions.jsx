@@ -84,10 +84,18 @@ const Questions = () => {
             required
           />
         </div>
-
-        <button type="submit" className={styles.button}>
-          Post Question
-        </button>
+        <div className={styles.buttonContainer}>
+          <button type="submit" className={styles.sButton}>
+            Post Question
+          </button>
+          <button
+            type="button"
+            className={styles.backButton}
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
       </form>
 
       {responseMessage && (

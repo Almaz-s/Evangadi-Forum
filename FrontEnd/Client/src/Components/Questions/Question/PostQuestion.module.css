@@ -71,7 +71,7 @@
 }
 
 /* Button styling */
-.button {
+/* .button {
   display: block;
   width: auto;
   padding: 5px 10px;
@@ -85,7 +85,33 @@
 
 .button:hover {
   background-color: #0056b3;
+} */
+ .buttonContainer  {
+  display: flex;
+  gap: 80px; /* Space between buttons */
+  
 }
+.sButton,
+.backButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+   background-color: #007bff;
+  color: white;
+  border: none; 
+}
+
+
+.sButton:hover {
+  background-color: #0056b3;
+}
+.backButton:hover {
+  background-color: #0056b3;
+
+}
+
 
 /* Response message styling */
 .responseMessage {

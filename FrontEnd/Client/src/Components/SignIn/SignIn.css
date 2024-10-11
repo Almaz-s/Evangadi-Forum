@@ -119,14 +119,17 @@
 }
 
 /* Styling for the information section on the right */
+.about{
+  color:#f97316; 
+}
 .info__networks {
   width: 50%;
   padding-left: 50px;
 }
 
-.info__networks h2 {
-  color: #d53b02;
-  font-size: 2rem;
+.info__networks h1 {
+  color: #4F466F;
+
   margin-bottom: 20px;
 }
 
