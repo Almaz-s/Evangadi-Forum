@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const { user } = useContext(AppState);
-  console.log(user);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

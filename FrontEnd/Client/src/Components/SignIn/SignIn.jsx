@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axiosBase from "../../API/axiosConfig"; // Axios instance to handle API requests
+import axiosBase from "../../axiosConfig";
 import "./SignIn.css"; // Custom styling for the SignIn component
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Eye icon for showing password
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"; // Eye-off icon for hiding password
 import AppState from "../../App";
 
 function SignIn() {
-  const { user, setUser } = useContext(AppState);
+  // const { user, setUser } = useContext(AppState) || {};
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errorMessage, setErrorMessage] = useState(""); // State to handle error messages
   const [processing, setProcessing] = useState(false); // State to handle login process state
@@ -56,9 +56,10 @@ function SignIn() {
           localStorage.setItem("user", response.data.user);
 
           console.log("LoginResponse", response.data);
+
           navigate("/allQuestions"); // Redirect to QuestionDetail page after login
           // alert("Login successful!");
-          setUser(response.data);
+          // setUser(response.data.user);
         })
         .catch((error) => {
           console.log(error);
@@ -77,73 +78,82 @@ function SignIn() {
   };
 
   return (
-    <div className="login-page">
-      {/* Left-side login form */}
-      <div className="login-form-container">
-        <h2>Login to your account</h2>
-        <p>
-          Don’t have an account?
-          <Link to="/SignUp" className="create-account-link">
-            Create a new account
-          </Link>
-        </p>
+    <>
+      {processing ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="login-page">
+          {/* Left-side login form */}
+          <div className="login-form-container">
+            <h2>Login to your account</h2>
+            <p>
+              Don’t have an account?
+              <Link to="/SignUp" className="create-account-link">
+                Create a new account
+              </Link>
+            </p>
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
+            <form className="login-form" onSubmit={handleSubmit}>
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+              />
 
-          <label htmlFor="password">Password</label>
-          <div className="password-container">
-            <input
-              type={showPassword ? "text" : "password"} // Show or hide password based on state
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              required
-            />
-            <span className="show-password" onClick={togglePasswordVisibility}>
-              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}{" "}
-              {/* Toggle visibility icon */}
-            </span>
+              <label htmlFor="password">Password</label>
+              <div className="password-container">
+                <input
+                  type={showPassword ? "text" : "password"} // Show or hide password based on state
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  className="show-password"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}{" "}
+                  {/* Toggle visibility icon */}
+                </span>
+              </div>
+
+              <button type="submit" className="login-btn" disabled={processing}>
+                {processing ? "Logging in..." : "Login"}{" "}
+                {/* Show processing state */}
+              </button>
+
+              {/* Display error message if present */}
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+            </form>
           </div>
 
-          <button type="submit" className="login-btn" disabled={processing}>
-            {processing ? "Logging in..." : "Login"}{" "}
-            {/* Show processing state */}
-          </button>
-
-          {/* Display error message if present */}
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </form>
-      </div>
-
-      {/* Right-side info section */}
-      <div className="info__networks">
-        <h2>Evangadi Networks Q & A</h2>
-        <p>
-          No matter what stage of life you are in, whether you're just starting
-          elementary school or being promoted to CEO of a Fortune 500 company,
-          you have much to offer to those who are trying to follow in your
-          footsteps.
-        </p>
-        <p>
-          Whether you are willing to share your knowledge or you are just
-          looking to meet mentors of your own, please start by joining the
-          network here.
-        </p>
-        <Link to="/HowItWorks" className="how-btn">
-          How it Works
-        </Link>
-      </div>
-    </div>
+          {/* Right-side info section */}
+          <div className="info__networks">
+            <h2>Evangadi Networks Q & A</h2>
+            <p>
+              No matter what stage of life you are in, whether you're just
+              starting elementary school or being promoted to CEO of a Fortune
+              500 company, you have much to offer to those who are trying to
+              follow in your footsteps.
+            </p>
+            <p>
+              Whether you are willing to share your knowledge or you are just
+              looking to meet mentors of your own, please start by joining the
+              network here.
+            </p>
+            <Link to="/HowItWorks" className="how-btn">
+              How it Works
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
