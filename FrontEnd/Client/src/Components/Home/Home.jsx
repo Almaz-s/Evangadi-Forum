@@ -5,13 +5,18 @@ import { IoIosArrowForward } from "react-icons/io";
 import "./Home.css";
 import { AppState } from "../../App";
 import { Link } from "react-router-dom";
-
+// declares
 const Home = () => {
-  const { user } = useContext(AppState);
-  const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
+  // define state
+  const { user } = useContext(AppState); // to retrieve the user object from app state
+  const [questions, setQuestions] = useState([]); // holds the list of fetched questions
+  const [loading, setLoading] = useState(false); // boolean to indicate if data is being fetched
+  const [error, setError] = useState(null); // holds any error messages during fetching
+  const [searchTerm, setSearchTerm] = useState(""); // for searching questions
+
+  // Fetch questions from the backend
+  const[currentPage, setCurrentPage] = useState(1); // for pagination
+  const questionsPerPage = 5; // number of questions per page
 
   // Fetch questions from the backend
   const fetchQuestions = async () => {
@@ -23,7 +28,6 @@ const Home = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       setQuestions(response.data.questions);
     } catch (err) {
       setError(err.response?.data?.msg || "Failed to fetch questions.");
@@ -36,11 +40,35 @@ const Home = () => {
     fetchQuestions();
   }, []);
 
+  // Filtering questions
   const filteredQuestions = questions.filter((question) =>
     question.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // if (loading) return <p>Loading questions...</p>;
+  // Pagination logic: calculate the start and end indices for the current page
+  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestions = filteredQuestions.slice(
+    indexOfFirstQuestion,
+    indexOfLastQuestion
+  );
+
+  // Determine the total number of pages
+  const totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+
+  // Handle page navigation
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
   if (error) return <p>{error}</p>;
 
   return (
@@ -69,8 +97,8 @@ const Home = () => {
           </div>
 
           <div className="question-items">
-            {filteredQuestions.length > 0 ? (
-              filteredQuestions.map((question) => (
+            {currentQuestions.length > 0 ? (
+              currentQuestions.map((question) => (
                 <div className="question-item" key={question.questionid}>
                   <div className="user">
                     <FaUserCircle className="user-icon" />
@@ -81,12 +109,27 @@ const Home = () => {
                       <p className="question-title">{question.title}</p>
                     </Link>
                   </div>
-                  <IoIosArrowForward className="arrow-icon" />
+                  <Link to={`/question/${question.questionid}`}><IoIosArrowForward className="arrow-icon" />
+                  </Link>
+                  
                 </div>
               ))
             ) : (
               <p>No questions found.</p>
             )}
+          </div>
+
+          {/* Pagination Controls */}
+          <div className="pagination-controls">
+            <button onClick={prevPage} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+            <button onClick={nextPage} disabled={currentPage === totalPages}>
+              Next
+            </button>
           </div>
         </div>
       )}
